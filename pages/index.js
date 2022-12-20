@@ -8,12 +8,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>shipping app | home</title>
-        <meta
-          name="description"
-          content="Product management, planning, production, quality and forecasting system."
-        />
-        {/* <link rel='icon' href='/favicon.ico' /> */}
+        <title>Homepage | shipping app</title>
       </Head>
 
       <main className={`${styles.main}`}>
