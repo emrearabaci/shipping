@@ -1,0 +1,14 @@
+/* Color Configs */
+$exactBlack: rgba(0, 0, 0, 1);
+$exactWhite: rgba(255, 255, 255, 1);
+
+$softWhite: rgba(230, 230, 230, 1);
+$softGrey: rgba(38, 38, 38, 1);
+
+/* ---------- DARK CONFIGS ---------- */
+$darkBackground: $exactBlack;
+$darkText: $softWhite;
+
+/* ---------- LIGHT CONFIGS ---------- */
+$lightBackground: $exactWhite;
+$lightText: $softGrey;
