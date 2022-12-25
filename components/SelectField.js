@@ -1,8 +1,8 @@
-export default function SelectField({ name, options, onChange }) {
+export default function SelectField({ name, placeholder, options, onChange }) {
   return (
     <select name={name} onChange={onChange} defaultValue={''}>
       <option value={''} disabled>
-        Please select a unit type.
+        {placeholder}
       </option>
       {options.map((group) => (
         <optgroup key={group.id} label={group.name}>
