@@ -19,7 +19,20 @@ export default function NewShipment({ allProducts }) {
   const [errors, setErrors] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(undefined);
 
+  const date = new Date(Date.now());
+
+  const dateToString =
+    date.getFullYear().toString() +
+    (date.getMonth() + 1).toString() +
+    date.getDate().toString();
+
+  const prefixOfShipmentCode =
+    dateToString +
+    Date.now().toString().substring(7, 13) +
+    Math.floor(Math.random() * 10);
+
   const [newShipmentForm, setNewShipmentForm] = useForm({
+    shipmentCode: prefixOfShipmentCode,
     productCode: '',
     shipmentQuantity: '',
     shipmentUnitPrice: '',
@@ -93,6 +106,14 @@ export default function NewShipment({ allProducts }) {
         </datalist>
 
         <form>
+          <InputField
+            name={`shipmentCode`}
+            type={`number`}
+            placeholder={`Shipment Code:`}
+            value={newShipmentForm.shipmentCode}
+            onChange={setNewShipmentForm}
+            disabled={true}
+          />
           <InputField
             name={`productCode`}
             type={`text`}
