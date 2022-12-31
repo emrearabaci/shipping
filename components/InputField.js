@@ -3,7 +3,8 @@ export default function InputField({
   type,
   placeholder,
   value,
-  onChange
+  onChange,
+  disabled
 }) {
   return (
     <input
@@ -12,6 +13,7 @@ export default function InputField({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      disabled={disabled}
     />
   );
 }
