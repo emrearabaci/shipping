@@ -1,3 +1,6 @@
+/* Next API */
+import Link from 'next/link';
+
 /* Static Props */
 import { loadShipments } from '../../lib/loadShipments';
 
@@ -14,6 +17,11 @@ export default function AllShipments({ allShipments }) {
             )}
           </p>
           <p>RequestedTime: {shipment.shipmentRequestedTime}</p>
+          <Link
+            href={`/shipments/${encodeURIComponent(shipment.shipmentCode)}`}
+          >
+            {shipment.shipmentCode}
+          </Link>
         </div>
       ))}
     </>
