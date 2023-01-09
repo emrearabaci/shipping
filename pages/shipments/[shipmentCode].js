@@ -31,9 +31,10 @@ export default function ShipmentDetail({ selectedShipment }) {
       id: 0,
       name: 'Shipment Status Options',
       units: [
-        { id: 0, value: 'q', label: 'In queue' },
-        { id: 1, value: 'p', label: 'In Progress' },
-        { id: 2, value: 'c', label: 'Completed' }
+        { id: 0, value: 'raw', label: 'Raw' },
+        { id: 1, value: 'queue', label: 'Queue' },
+        { id: 2, value: 'progress', label: 'Progress' },
+        { id: 3, value: 'done', label: 'Done' }
       ]
     }
   ];
