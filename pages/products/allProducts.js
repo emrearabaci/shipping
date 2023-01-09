@@ -1,5 +1,6 @@
 /* Static Props */
 import { loadProducts } from '../../lib/loadProducts';
+import Link from 'next/link';
 
 export default function AllProducts({ allProducts }) {
   return (
@@ -12,6 +13,9 @@ export default function AllProducts({ allProducts }) {
             Product Creation Date:
             {new Date(product.productCreationDate).toLocaleString('tr-TR')}
           </p>
+          <Link href={`/products/${encodeURIComponent(product.productCode)}`}>
+            {product.productCode}
+          </Link>
         </div>
       ))}
     </>
