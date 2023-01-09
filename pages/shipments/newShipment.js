@@ -32,10 +32,9 @@ export default function NewShipment({ allProducts }) {
     Math.floor(Math.random() * 10);
 
   const [newShipmentForm, setNewShipmentForm] = useForm({
+    productInfo: '',
     shipmentCode: prefixOfShipmentCode,
-    productCode: '',
     shipmentQuantity: '',
-    shipmentUnitPrice: '',
     shipmentFrom: '',
     shipmentTo: '',
     shipmentRequestedBy: '',
@@ -48,8 +47,7 @@ export default function NewShipment({ allProducts }) {
 
   useEffect(() => {
     if (selectedProduct !== undefined) {
-      newShipmentForm.productCode = selectedProduct.productCode;
-      newShipmentForm.shipmentUnitPrice = selectedProduct.productUnitPrice;
+      newShipmentForm.productInfo = selectedProduct;
     } else {
       newShipmentForm.productCode = '';
       newShipmentForm.shipmentUnitPrice = '';
@@ -66,9 +64,10 @@ export default function NewShipment({ allProducts }) {
       id: 0,
       name: 'Shipment Status',
       units: [
-        { id: 0, value: 'q', label: 'In queue' },
-        { id: 1, value: 'p', label: 'In Progress' },
-        { id: 2, value: 'c', label: 'Completed' }
+        { id: 0, value: 'raw', label: 'Raw' },
+        { id: 1, value: 'queue', label: 'Queue' },
+        { id: 2, value: 'progress', label: 'Progress' },
+        { id: 3, value: 'done', label: 'Done' }
       ]
     }
   ];
@@ -115,24 +114,10 @@ export default function NewShipment({ allProducts }) {
             disabled={true}
           />
           <InputField
-            name={`productCode`}
-            type={`text`}
-            placeholder={`Product Code:`}
-            value={newShipmentForm.productCode}
-            onChange={setNewShipmentForm}
-          />
-          <InputField
             name={`shipmentQuantity`}
             type={`number`}
             placeholder={`Shipment Quantity:`}
             value={newShipmentForm.shipmentQuantity}
-            onChange={setNewShipmentForm}
-          />
-          <InputField
-            name={`shipmentUnitPrice`}
-            type={`number`}
-            placeholder={`Shipment Unit Price:`}
-            value={newShipmentForm.shipmentUnitPrice}
             onChange={setNewShipmentForm}
           />
           <InputField
