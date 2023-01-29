@@ -1,3 +1,5 @@
+/* Styles */
+import styles from '../styles/components/InputField.module.scss';
 export default function InputField({
   name,
   type,
@@ -8,6 +10,7 @@ export default function InputField({
 }) {
   return (
     <input
+      className={`${styles.input}`}
       name={name}
       type={type}
       placeholder={placeholder}
