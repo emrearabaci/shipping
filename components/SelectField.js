@@ -1,6 +1,14 @@
+/* Styles */
+import styles from '../styles/components/SelectField.module.scss';
+
 export default function SelectField({ name, placeholder, options, onChange }) {
   return (
-    <select name={name} onChange={onChange} defaultValue={''}>
+    <select
+      className={`${styles.select}`}
+      name={name}
+      onChange={onChange}
+      defaultValue={''}
+    >
       <option value={''} disabled>
         {placeholder}
       </option>
