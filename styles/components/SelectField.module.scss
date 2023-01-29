@@ -1,0 +1,48 @@
+/* Import scss colors (./styles/configs/colors.scss) */
+@import '../configs/colors';
+
+.select {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  letter-spacing: 0.2em;
+  border: none;
+  border-bottom: 1px;
+
+  padding: 0.4em 0.1em;
+  transition: 120ms ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .select {
+    color: $lightText;
+    background-color: $lightBackground;
+    border-bottom-style: solid;
+    border-bottom-color: $softWhite;
+
+    &:focus {
+      border-bottom-color: $imperialRed;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .select {
+    color: $darkText;
+    background-color: $darkBackground;
+    border-bottom-style: solid;
+    border-bottom-color: $softGrey;
+
+    &:focus {
+      border-bottom-color: $imperialRed;
+    }
+  }
+}
