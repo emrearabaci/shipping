@@ -1,0 +1,46 @@
+/* Import scss colors (./styles/configs/colors.scss) */
+@import '../configs/colors';
+
+.input {
+  flex: 1;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  letter-spacing: 0.2em;
+  border: none;
+  border-bottom: 1px;
+
+  padding: 0.4em 0.4em;
+  transition: 120ms ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .input {
+    color: $lightText;
+    background-color: $lightBackground;
+    border-bottom-style: solid;
+    border-bottom-color: $softWhite;
+
+    &:focus {
+      border-bottom-color: $imperialRed;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .input {
+    color: $darkText;
+    background-color: $darkBackground;
+    border-bottom-style: solid;
+    border-bottom-color: $softGrey;
+
+    &:focus {
+      border-bottom-color: $imperialRed;
+    }
+  }
+}

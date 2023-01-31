@@ -1,0 +1,38 @@
+/* Import scss colors (./styles/configs/colors.scss) */
+@import '../configs/colors';
+
+.button {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  line-height: 2em;
+  letter-spacing: 0.2em;
+  border: 1px solid $softGrey;
+  padding: 1em 2em;
+  transition: 120ms ease;
+  cursor: pointer;
+
+  &:hover {
+    border-radius: 1em;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .button {
+    color: $lightText;
+    background-color: $lightBackground;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .button {
+    color: $darkText;
+    background-color: $darkBackground;
+  }
+}
