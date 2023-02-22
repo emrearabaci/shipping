@@ -1,0 +1,119 @@
+/* Import scss colors (./styles/configs/colors.scss) */
+@import '../configs/colors';
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 10vh;
+  margin: 1em;
+
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.drawer {
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 240ms ease;
+
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+
+  .sidebar {
+    position: fixed;
+    width: 280px;
+    height: 100vh;
+    top: 0;
+    right: -280px;
+    padding: 1em;
+    transform: translateX(-280px);
+    transition: 240ms ease;
+
+    .top {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        padding: 0 0.8em;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      animation-duration: 240ms;
+
+      .group {
+        box-shadow: rgba(0, 0, 0, 0.04) 0 6px 10px;
+        padding: 0.4em 0.4em;
+        border-radius: 1em;
+
+        .header {
+          display: flex;
+          padding: 0.4em;
+          border-bottom: 1px solid $imperialRed;
+        }
+        .link {
+          text-decoration: none;
+          padding: 0.4em;
+          transition: 180ms ease;
+
+          a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            span {
+              margin: 0 0.4em;
+            }
+          }
+          &:hover {
+            transform: translateX(1em);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .drawer {
+    .sidebar {
+      background-color: $whiteSmoke;
+      a,
+      span {
+        color: $lightText;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .drawer {
+    .sidebar {
+      background-color: $softWhite;
+      a,
+      span {
+        color: $lightText;
+      }
+    }
+  }
+}
