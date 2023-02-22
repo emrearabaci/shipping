@@ -7,6 +7,9 @@ import { useForm } from '../../hooks/useForm';
 /* Instances */
 import axios from '../../configs/axiosInstance';
 
+/* Styles */
+import styles from '../../styles/pages/newProduct.module.scss';
+
 /* Components */
 import InputField from '../../components/InputField';
 import SelectField from '../../components/SelectField';
@@ -18,13 +21,12 @@ export default function NewProduct() {
     productCode: '',
     productName: '',
     productCustomer: '',
+    productRawMaterial: '',
+    productUnit: '',
     productUnitCost: '',
     productUnitPrice: '',
-    productUnit: '',
     productNetMeasure: '',
     productGrossMeasure: '',
-    productRawMaterial: '',
-    productStages: '',
     productDescription: '',
     productCreator: 'Logged User!',
     productUpdater: 'Logged User!'
@@ -83,90 +85,115 @@ export default function NewProduct() {
 
   return (
     <>
-      <form className={``}>
-        <InputField
-          name={`productCode`}
-          type={`text`}
-          placeholder={`Product Code:`}
-          value={newProductForm.productCode}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productName`}
-          type={`text`}
-          placeholder={`Product Name:`}
-          value={newProductForm.productName}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productCustomer`}
-          type={`text`}
-          placeholder={`Product Customer:`}
-          value={newProductForm.productCustomer}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productUnitCost`}
-          type={`number`}
-          placeholder={`Product Unit Cost:`}
-          value={newProductForm.productUnitCost}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productUnitPrice`}
-          type={`number`}
-          placeholder={`Product Unit Price:`}
-          value={newProductForm.productUnitPrice}
-          onChange={setNewProductForm}
-        />
-        <SelectField
-          name={'productUnit'}
-          placeholder={'Please Select a Unit Type'}
-          value={newProductForm.productUnit}
-          options={productUnitOptions}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productNetMeasure`}
-          type={`number`}
-          placeholder={`Product Net Measure:`}
-          value={newProductForm.productNetMeasure}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productGrossMeasure`}
-          type={`number`}
-          placeholder={`Product Gross Measure:`}
-          value={newProductForm.productGrossMeasure}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productRawMaterial`}
-          type={`text`}
-          placeholder={`Product Raw Material:`}
-          value={newProductForm.productRawMaterial}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productStages`}
-          type={`string`}
-          placeholder={`Product Stages:`}
-          value={newProductForm.productStages}
-          onChange={setNewProductForm}
-        />
-        <InputField
-          name={`productDescription`}
-          type={`string`}
-          placeholder={`Product Descriptions:`}
-          value={newProductForm.productDescription}
-          onChange={setNewProductForm}
-        />
-        <Button
-          type={`submit`}
-          onClick={newProductRequest}
-          content={`Save Product`}
-        />
-      </form>
+      <div className={`${styles.constructor}`}>
+        <div className={`${styles.content}`}>
+          <span className={`${styles.header}`}>New Product</span>
+          <span className={`${styles.helper}`}>
+            Use the form below to add a new product.Each product can be added
+            only once. Details used when adding products will be used for future
+            calculations. Therefore, you should make sure that the values
+            written are correct.
+          </span>
+        </div>
+
+        <form className={`${styles.form}`}>
+          <div className={`${styles.group}`}>
+            <InputField
+              name={`productCode`}
+              type={`text`}
+              placeholder={`Product Code:`}
+              value={newProductForm.productCode}
+              onChange={setNewProductForm}
+            />
+            <InputField
+              name={`productName`}
+              type={`text`}
+              placeholder={`Product Name:`}
+              value={newProductForm.productName}
+              onChange={setNewProductForm}
+            />
+          </div>
+
+          <div className={`${styles.group}`}>
+            <InputField
+              name={`productCustomer`}
+              type={`text`}
+              placeholder={`Product Customer:`}
+              value={newProductForm.productCustomer}
+              onChange={setNewProductForm}
+            />
+            <InputField
+              name={`productRawMaterial`}
+              type={`text`}
+              placeholder={`Product Raw Material:`}
+              value={newProductForm.productRawMaterial}
+              onChange={setNewProductForm}
+            />
+          </div>
+
+          <div className={`${styles.group}`}>
+            <SelectField
+              name={'productUnit'}
+              placeholder={'Please Select a Unit Type'}
+              value={newProductForm.productUnit}
+              options={productUnitOptions}
+              onChange={setNewProductForm}
+            />
+          </div>
+
+          <div className={`${styles.group}`}>
+            <InputField
+              name={`productUnitCost`}
+              type={`number`}
+              placeholder={`Product Unit Cost:`}
+              value={newProductForm.productUnitCost}
+              onChange={setNewProductForm}
+            />
+            <InputField
+              name={`productUnitPrice`}
+              type={`number`}
+              placeholder={`Product Unit Price:`}
+              value={newProductForm.productUnitPrice}
+              onChange={setNewProductForm}
+            />
+          </div>
+
+          <div className={`${styles.group}`}>
+            <InputField
+              name={`productNetMeasure`}
+              type={`number`}
+              placeholder={`Product Net Measure:`}
+              value={newProductForm.productNetMeasure}
+              onChange={setNewProductForm}
+            />
+            <InputField
+              name={`productGrossMeasure`}
+              type={`number`}
+              placeholder={`Product Gross Measure:`}
+              value={newProductForm.productGrossMeasure}
+              onChange={setNewProductForm}
+            />
+          </div>
+
+          <div className={`${styles.group}`}>
+            <InputField
+              name={`productDescription`}
+              type={`string`}
+              placeholder={`Product Descriptions:`}
+              value={newProductForm.productDescription}
+              onChange={setNewProductForm}
+            />
+          </div>
+
+          <div className={`${styles.group}`}>
+            <Button
+              type={`submit`}
+              onClick={newProductRequest}
+              content={`Save Product`}
+            />
+          </div>
+        </form>
+      </div>
 
       <div>
         {Object.keys(errors).map((error, index) => {
