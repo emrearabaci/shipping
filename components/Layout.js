@@ -1,5 +1,6 @@
 /* Next API */
 import Head from 'next/head';
+import Navigation from './Navigation';
 
 export default function Layout({ children }) {
   return (
@@ -16,6 +17,7 @@ export default function Layout({ children }) {
         {/* <link rel='icon' href='/favicon.ico' /> */}
         <title>Welcome | shipping app</title>
       </Head>
+      <Navigation />
       <main>{children}</main>
     </>
   );
